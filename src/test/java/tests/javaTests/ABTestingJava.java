@@ -1,12 +1,17 @@
 package tests.javaTests;
 
+import base.TestsSpecUI;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import pageObjects.ABTesting;
 
+@ExtendWith(TestsSpecUI.class)
 public class ABTestingJava {
   ABTesting page = new ABTesting();
 
   @Test
+  @DisplayName("User should see correct title")
   public void userShouldSeeCorrectTitle() {
     page
         .open()
@@ -14,6 +19,7 @@ public class ABTestingJava {
   }
 
   @Test
+  @DisplayName("User should see correct description")
   public void userShouldSeeCorrectDescription() {
     page
         .open()

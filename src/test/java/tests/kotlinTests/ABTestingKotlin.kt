@@ -1,8 +1,11 @@
 package tests.kotlinTests
 
+import base.TestsSpecUI
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.extension.ExtendWith
 import pageObjects.ABTesting
 
+@ExtendWith(TestsSpecUI::class)
 class ABTestingKotlin {
 
     private val page = ABTesting()
