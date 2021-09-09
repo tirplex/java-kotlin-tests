@@ -1,6 +1,7 @@
 package tests.kotlinTests
 
 import base.TestsSpecUI
+import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 import pageObjects.ABTesting
@@ -11,6 +12,7 @@ class ABTestingKotlin {
     private val page = ABTesting()
 
     @Test
+    @Disabled
     fun `User should see correct title`() {
         page
             .open()
@@ -18,6 +20,7 @@ class ABTestingKotlin {
     }
 
     @Test
+    @Disabled
     fun `User should see correct description`() {
         page
             .open()

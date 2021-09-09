@@ -1,6 +1,7 @@
 package tests.javaTests;
 
 import base.TestsSpecUI;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -11,6 +12,7 @@ public class ABTestingJava {
   ABTesting page = new ABTesting();
 
   @Test
+  @Disabled
   @DisplayName("User should see correct title")
   public void userShouldSeeCorrectTitle() {
     page
@@ -19,6 +21,7 @@ public class ABTestingJava {
   }
 
   @Test
+  @Disabled
   @DisplayName("User should see correct description")
   public void userShouldSeeCorrectDescription() {
     page
