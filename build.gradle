@@ -2,6 +2,7 @@ plugins {
     id 'java'
     id 'org.jetbrains.kotlin.jvm' version '1.5.30'
     id("com.adarshr.test-logger") version "3.0.0"
+    id("io.qameta.allure") version "2.8.1"
 }
 
 group 'org.example'
@@ -12,7 +13,7 @@ repositories {
 }
 
 dependencies {
-    // use 5.6.0 version cause 5.7.0 has problem
+    // Use 5.6.0 version cause 5.7.0 has problem
     // https://newbedev.com/no-tests-found-for-given-includes-when-running-gradle-tests-in-intellij-idea
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.6.0'
@@ -23,7 +24,7 @@ dependencies {
 
 test {
     useJUnitPlatform()
-    // enable passing all the properties via -Dprop=..
+    // Enable passing all the properties via -Dprop=..
     systemProperties System.getProperties()
 }
 
@@ -40,8 +41,19 @@ compileTestKotlin {
 }
 
 tasks.withType(Test) {
-    // for using properties from gradle.properties
+    // For using properties from gradle.properties
     systemProperties = System.properties
-    // start tests every time, even when code not changed
+    // Start tests every time, even when code not changed
     outputs.upToDateWhen { false }
+}
+
+allure {
+    // Fixing recent bug https://github.com/allure-framework/allure-gradle/issues/60#issuecomment-844884943
+    configuration = "testImplementation"
+
+    autoconfigure = true
+    version = '2.8.1'
+    useJUnit5 {
+        version = '2.8.1'
+    }
 }
