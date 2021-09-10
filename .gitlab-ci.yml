@@ -22,7 +22,8 @@ before_script:
 
 build:
   stage: build
-  script: gradle --build-cache assemble
+  script: gradle test -Dselenide.headless=true
+  # script: gradle --build-cache assemble
   cache:
     key: "$CI_COMMIT_REF_NAME"
     policy: push
@@ -30,12 +31,12 @@ build:
       - build
       - .gradle
 
-test:
-  stage: test
-  script: gradle check
-  cache:
-    key: "$CI_COMMIT_REF_NAME"
-    policy: pull
-    paths:
-      - build
-      - .gradle
+# test:
+#   stage: test
+#   script: gradle check
+#   cache:
+#     key: "$CI_COMMIT_REF_NAME"
+#     policy: pull
+#     paths:
+#       - build
+#       - .gradle
